@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FazUmCafezim | Café Especial Brasileiro</title>
+    <meta
+      name="description"
+      content="FazUmCafezim - Café especial brasileiro feito com amor desde 2020. Experimente nossos cafés artesanais e descubra o sabor único do Brasil."
+    />
+
+    <!-- TailwindCSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              creme: "#F2EAE5",
+              "marrom-claro": "#A78B6C",
+              "marrom-cafe": "#503E2D",
+              verde: "#819872",
+              "accent-1": "#917154",
+              "accent-2": "#B5C1A1",
+              "accent-3": "#E0D0B8",
+              "accent-4": "#DEDFCF",
+              "accent-5": "#F2E3E2",
+              "accent-6": "#E3C0BB",
+            },
+            fontFamily: {
+              playfair: ['"Playfair Display"', "serif"],
+              inter: ["Inter", "sans-serif"],
+            },
+            container: {
+              center: true,
+              padding: {
+                DEFAULT: "1rem",
+                sm: "2rem",
+                lg: "4rem",
+                xl: "5rem",
+                "2xl": "6rem",
+              },
+              screens: {
+                sm: "640px",
+                md: "768px",
+                lg: "1024px",
+                xl: "1280px",
+                "2xl": "1200px",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+      }
+    </style>
+  </head>
+  <body class="bg-creme text-marrom-cafe">
+    <!-- Navbar -->
+    <header
+      id="navbar"
+      class="fixed top-0 w-full bg-creme/80 backdrop-blur-lg z-50 border-b border-marrom-claro/10"
+    >
+      <nav class="container flex justify-between items-center py-2">
+        <a href="#hero" class="flex items-center">
+          <img
+            src="Imagens/1 - Logo Circular.png"
+            alt="FazUmCafezim Logo Circular"
+            class="h-12 w-12 rounded-full object-cover p-0 shadow-none"
+          />
+        </a>
+        <div class="hidden md:flex items-center space-x-6 ml-2">
+          <a
+            href="#hero"
+            class="font-medium text-base hover:underline underline-offset-8 decoration-verde transition-colors px-1"
+            >Início</a
+          >
+          <a
+            href="#sobre"
+            class="font-medium text-base hover:underline underline-offset-8 decoration-verde transition-colors px-1"
+            >Sobre Nós</a
+          >
+          <a
+            href="#localizacao"
+            class="font-medium text-base hover:underline underline-offset-8 decoration-verde transition-colors px-1"
+            >Localização</a
+          >
+          <a
+            href="#loja"
+            class="font-medium text-base hover:underline underline-offset-8 decoration-verde transition-colors px-1"
+            >Loja</a
+          >
+          <div class="flex items-center space-x-3 ml-2">
+            <a
+              href="https://instagram.com/fazumcafezim"
+              class="text-marrom-cafe hover:text-verde transition-colors"
+              aria-label="Instagram"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://tiktok.com/@fazumcafezim"
+              class="text-marrom-cafe hover:text-verde transition-colors"
+              aria-label="TikTok"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://wa.me/5500000000000"
+              class="text-marrom-cafe hover:text-verde transition-colors"
+              aria-label="WhatsApp"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+            </a>
+          </div>
+          <a
+            href="#contato"
+            class="ml-2 bg-verde text-white px-6 py-2 rounded-full font-medium shadow hover:bg-verde/90 transition-colors"
+            >Contato</a
+          >
+        </div>
+        <button id="mobile-menu-button" class="md:hidden">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </nav>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-creme/95 backdrop-blur-lg"
+      >
+        <div class="container py-4 flex flex-col space-y-4">
+          <a
+            href="#hero"
+            class="hover:text-marrom-claro font-medium text-base transition-colors"
+            >Início</a
+          >
+          <a
+            href="#sobre"
+            class="hover:text-marrom-claro font-medium text-base transition-colors"
+            >Sobre Nós</a
+          >
+          <a
+            href="#localizacao"
+            class="hover:text-marrom-claro font-medium text-base transition-colors"
+            >Localização</a
+          >
+          <a
+            href="#loja"
+            class="hover:text-marrom-claro font-medium text-base transition-colors"
+            >Loja</a
+          >
+          <div class="flex space-x-3 pt-2">
+            <a
+              href="https://instagram.com/fazumcafezim"
+              class="text-marrom-cafe hover:text-verde transition-colors"
+              aria-label="Instagram"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://tiktok.com/@fazumcafezim"
+              class="text-marrom-cafe hover:text-verde transition-colors"
+              aria-label="TikTok"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://wa.me/5500000000000"
+              class="text-marrom-cafe hover:text-verde transition-colors"
+              aria-label="WhatsApp"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+            </a>
+          </div>
+          <a
+            href="#contato"
+            class="bg-verde text-white px-6 py-2 rounded-full font-medium shadow hover:bg-verde/90 transition-colors text-center"
+            >Contato</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section
+        id="hero"
+        class="min-h-screen flex items-stretch relative p-0 bg-creme"
+      >
+        <div
+          class="container grid grid-cols-1 md:grid-cols-2 gap-0 h-full min-h-screen p-0"
+        >
+          <!-- Text Content -->
+          <div
+            class="flex flex-col justify-center bg-creme px-6 md:px-12 py-20 md:py-0 h-full"
+          >
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold mb-8 text-marrom-cafe leading-tight max-w-2xl"
+            >
+              Cafés Especiais e Produtos Artesanais que Transformam Momentos
+            </h1>
+            <p
+              class="text-lg md:text-xl mb-10 text-marrom-claro font-inter max-w-lg"
+            >
+              Transforme sua rotina com cafés especiais e produtos exclusivos do
+              FazUmCafezim, criados para proporcionar momentos únicos e
+              inesquecíveis.
+            </p>
+            <a
+              href="#sobre"
+              class="inline-flex items-center gap-2 bg-verde text-white px-6 py-2 rounded-full font-medium text-lg shadow hover:bg-verde/90 transition-colors w-max"
+            >
+              Saiba Mais
+              <span class="ml-2 w-6 h-6 flex items-center justify-center">
+                <!-- Mug Icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 500 321.73"
+                  fill="none"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill="#a78b6c"
+                    d="M419.62,53.68c-11.93-21.07-44.1-32.72-65.31-38.55C309.37,2.79,257.3-.69,210.86.11l-.88.02h-.02c-46.22.86-97.78,6.15-141.99,19.96C43.28,27.79-.54,45.58,0,77.31c0,.37.02.74.04,1.11,1.36,66.92,20.52,133.91,68.27,182.71,38.31,39.15,90.21,60.87,144.98,60.6,74.83-.36,140.53-40.86,177.18-105.34,142.14.15,139.52-162.3,29.14-162.71ZM288.87,271.29c-22.68,11.34-47.67,17.41-73.02,17.85-25.29.44-50.62-4.8-73.63-15.32-62.82-28.71-96.3-88.73-106.62-154.29,10.97,5.44,23,9.5,34.29,12.6,44.86,12.32,96.8,15.81,143.17,15.03h.33c46.44-.81,98.37-6.08,142.85-19.98,11.17-3.49,23.06-7.96,33.83-13.78-8.05,65.88-39.44,127.01-101.22,157.89ZM382.2,81.41c-10.31,6.67-23.82,11.56-35.49,15.21-41.54,12.97-90.5,17.79-133.86,18.54h-.14s-.09,0-.09,0c-43.3.74-92.35-2.36-134.25-13.87-11.79-3.24-25.46-7.65-35.99-13.97-2.83-1.69-10.31-6.66-10.38-10.56-.07-3.89,7.24-9.12,10.01-10.91,10.31-6.67,23.82-11.56,35.49-15.21,41.55-12.97,90.52-17.79,133.88-18.54h.19c43.3-.75,92.35,2.36,134.26,13.87,11.79,3.24,25.46,7.65,35.99,13.97,2.83,1.69,10.31,6.66,10.38,10.56.07,3.89-7.24,9.11-10.01,10.9ZM458.16,159.61c-12.41,16.62-32.67,23.5-52.75,25.07,12.19-31.57,17.81-65.33,18.65-99.13,17.39,1.13,32.98,9.56,40.24,26.55,6.73,15.73,4.01,33.9-6.15,47.51Z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+          <!-- Image -->
+          <div class="relative h-full w-full">
+            <div
+              class="absolute inset-0 bg-gradient-to-l from-black/30 via-black/10 to-transparent rounded-none z-10"
+            ></div>
+            <img
+              src="Imagens/MCK02.webp"
+              alt="Xícara de café artesanal"
+              class="absolute inset-0 w-full h-full object-cover object-center m-0 p-0 border-none shadow-none rounded-none z-0"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Sobre Section -->
+      <section id="sobre" class="py-24 bg-white relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div
+          class="absolute top-0 left-0 w-64 h-64 bg-accent-3/20 rounded-full -translate-x-1/2 -translate-y-1/2"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-96 h-96 bg-accent-2/10 rounded-full translate-x-1/3 translate-y-1/3"
+        ></div>
+
+        <div class="container relative">
+          <div class="grid md:grid-cols-2 gap-16 items-center">
+            <!-- Text Content -->
+            <div class="order-2 md:order-1 space-y-8">
+              <div class="space-y-4">
+                <span
+                  class="text-verde font-medium tracking-wider uppercase text-sm"
+                  >Nossa História</span
+                >
+                <h2
+                  class="text-4xl md:text-5xl font-playfair font-bold leading-tight"
+                >
+                  Nossa História e Paixão por Cafés Especiais
+                </h2>
+              </div>
+
+              <div class="space-y-6">
+                <p class="text-lg leading-relaxed">
+                  Somos uma micro cafeteria localizada em Sorriso, MT, fruto do
+                  sonho da Ju de transformar sua paixão por café em um negócio
+                  especial. Trabalhamos exclusivamente com cafés especiais e
+                  comidinhas caseiras, oferecendo um ambiente único e intimista,
+                  onde atendemos apenas duas pessoas por vez para garantir uma
+                  experiência única e repleta de sabores.
+                </p>
+                <p class="text-lg leading-relaxed">
+                  Além de desfrutar de nossos cafés preparados com todo o
+                  capricho, você também pode levar essa paixão para casa. Nossa
+                  loja on-line conta com uma curadoria de produtos exclusivos,
+                  como xícaras artesanais, drip coffee e acessórios, para
+                  prolongar os momentos especiais que só o café proporciona.
+                </p>
+              </div>
+
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto pt-4"
+              >
+                <div
+                  class="bg-creme/50 p-6 rounded-2xl backdrop-blur-sm h-full flex flex-col justify-between"
+                >
+                  <h3
+                    class="text-xl font-playfair font-semibold text-marrom-claro mb-3"
+                  >
+                    Missão
+                  </h3>
+                  <p class="text-base">
+                    Oferecer uma experiência única e acolhedora, valorizando
+                    cafés especiais e comidas caseiras, com um toque exclusivo e
+                    feito com paixão.
+                  </p>
+                </div>
+                <div
+                  class="bg-creme/50 p-6 rounded-2xl backdrop-blur-sm h-full flex flex-col justify-between"
+                >
+                  <h3
+                    class="text-xl font-playfair font-semibold text-marrom-claro mb-3"
+                  >
+                    Visão
+                  </h3>
+                  <p class="text-base">
+                    Ser referência em atendimento personalizado e qualidade em
+                    cafés especiais na região de Sorriso, MT, inspirando
+                    momentos de conexão e prazer ao redor do café.
+                  </p>
+                </div>
+                <div
+                  class="bg-creme/50 p-6 rounded-2xl backdrop-blur-sm h-full flex flex-col justify-between"
+                >
+                  <h3
+                    class="text-xl font-playfair font-semibold text-marrom-claro mb-3"
+                  >
+                    Valores
+                  </h3>
+                  <p class="text-base">
+                    Qualidade, sustentabilidade e amor em tudo o que fazemos.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Image -->
+            <div class="order-1 md:order-2 relative">
+              <div class="relative z-10">
+                <img
+                  src="Imagens/cafe-interior.jpg"
+                  alt="Interior da cafeteria FazUmCafezim"
+                  class="w-full h-[600px] object-cover rounded-2xl shadow-xl"
+                />
+                <!-- Decorative Frame -->
+                <div
+                  class="absolute -bottom-6 -right-6 w-full h-full border-2 border-marrom-claro/20 rounded-2xl -z-10"
+                ></div>
+              </div>
+              <!-- Decorative Coffee Bean -->
+              <div class="absolute -top-8 -left-8 w-16 h-16">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  class="w-full h-full text-marrom-claro/20"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cafés Section -->
+      <section id="cafes" class="py-20 bg-creme">
+        <div class="container">
+          <h2
+            class="text-3xl md:text-4xl font-playfair font-bold text-center mb-12"
+          >
+            Nossos Cafés
+          </h2>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Expresso -->
+            <div
+              class="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition-transform"
+            >
+              <img
+                src="Imagens/expresso.jpg"
+                alt="Café Expresso"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl font-playfair font-semibold">Expresso</h3>
+                  <span
+                    class="bg-verde text-white text-sm px-3 py-1 rounded-full"
+                    >Popular</span
+                  >
+                </div>
+                <p class="text-marrom-claro mb-4 line-clamp-2">
+                  Intenso e encorpado, nosso expresso é preparado com grãos
+                  selecionados para uma experiência única.
+                </p>
+                <a
+                  href="https://wa.me/5500000000000?text=Olá! Gostaria de pedir um Expresso."
+                  class="inline-block text-marrom-cafe hover:text-marrom-claro transition-colors"
+                >
+                  Quero experimentar →
+                </a>
+              </div>
+            </div>
+
+            <!-- Coado -->
+            <div
+              class="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition-transform"
+            >
+              <img
+                src="Imagens/coado.jpg"
+                alt="Café Coado"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-playfair font-semibold mb-2">Coado</h3>
+                <p class="text-marrom-claro mb-4 line-clamp-2">
+                  Suave e aromático, preparado com método de coagem artesanal
+                  para extrair o melhor sabor.
+                </p>
+                <a
+                  href="https://wa.me/5500000000000?text=Olá! Gostaria de pedir um Café Coado."
+                  class="inline-block text-marrom-cafe hover:text-marrom-claro transition-colors"
+                >
+                  Quero experimentar →
+                </a>
+              </div>
+            </div>
+
+            <!-- Capuccino -->
+            <div
+              class="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition-transform"
+            >
+              <img
+                src="Imagens/capuccino.jpg"
+                alt="Capuccino"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-playfair font-semibold mb-2">
+                  Capuccino
+                </h3>
+                <p class="text-marrom-claro mb-4 line-clamp-2">
+                  A combinação perfeita de café expresso, leite cremoso e espuma
+                  de leite.
+                </p>
+                <a
+                  href="https://wa.me/5500000000000?text=Olá! Gostaria de pedir um Capuccino."
+                  class="inline-block text-marrom-cafe hover:text-marrom-claro transition-colors"
+                >
+                  Quero experimentar →
+                </a>
+              </div>
+            </div>
+
+            <!-- Latte -->
+            <div
+              class="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition-transform"
+            >
+              <img
+                src="Imagens/latte.jpg"
+                alt="Latte"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-playfair font-semibold mb-2">Latte</h3>
+                <p class="text-marrom-claro mb-4 line-clamp-2">
+                  Suave e cremoso, com uma proporção perfeita de café e leite
+                  vaporizado.
+                </p>
+                <a
+                  href="https://wa.me/5500000000000?text=Olá! Gostaria de pedir um Latte."
+                  class="inline-block text-marrom-cafe hover:text-marrom-claro transition-colors"
+                >
+                  Quero experimentar →
+                </a>
+              </div>
+            </div>
+
+            <!-- Cold Brew -->
+            <div
+              class="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition-transform"
+            >
+              <img
+                src="Imagens/cold-brew.jpg"
+                alt="Cold Brew"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-playfair font-semibold mb-2">
+                  Cold Brew
+                </h3>
+                <p class="text-marrom-claro mb-4 line-clamp-2">
+                  Preparado com infusão a frio por 24 horas, resultando em um
+                  café suave e refrescante.
+                </p>
+                <a
+                  href="https://wa.me/5500000000000?text=Olá! Gostaria de pedir um Cold Brew."
+                  class="inline-block text-marrom-cafe hover:text-marrom-claro transition-colors"
+                >
+                  Quero experimentar →
+                </a>
+              </div>
+            </div>
+
+            <!-- Mocha -->
+            <div
+              class="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition-transform"
+            >
+              <img
+                src="Imagens/mocha.jpg"
+                alt="Mocha"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-playfair font-semibold mb-2">Mocha</h3>
+                <p class="text-marrom-claro mb-4 line-clamp-2">
+                  A deliciosa combinação de café expresso, chocolate e leite
+                  cremoso.
+                </p>
+                <a
+                  href="https://wa.me/5500000000000?text=Olá! Gostaria de pedir um Mocha."
+                  class="inline-block text-marrom-cafe hover:text-marrom-claro transition-colors"
+                >
+                  Quero experimentar →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Preferências Section -->
+      <section id="preferencias" class="py-20 bg-white">
+        <div class="container">
+          <h2
+            class="text-3xl md:text-4xl font-playfair font-bold text-center mb-12"
+          >
+            Conte pra gente seu tipo de café!
+          </h2>
+
+          <form
+            action="https://formspree.io/f/your-form-id"
+            method="POST"
+            class="max-w-2xl mx-auto"
+          >
+            <div class="space-y-6">
+              <!-- Nome -->
+              <div>
+                <label for="nome" class="block text-lg mb-2">Nome</label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  required
+                  class="w-full border border-marrom-claro/40 focus:border-marrom-claro rounded-lg px-4 py-2 focus:outline-none"
+                />
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="email" class="block text-lg mb-2">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full border border-marrom-claro/40 focus:border-marrom-claro rounded-lg px-4 py-2 focus:outline-none"
+                />
+              </div>
+
+              <!-- Tipo de Café -->
+              <div>
+                <label for="tipo-cafe" class="block text-lg mb-2"
+                  >Tipo de café favorito</label
+                >
+                <select
+                  id="tipo-cafe"
+                  name="tipo-cafe"
+                  required
+                  class="w-full border border-marrom-claro/40 focus:border-marrom-claro rounded-lg px-4 py-2 focus:outline-none"
+                >
+                  <option value="">Selecione...</option>
+                  <option value="expresso">Expresso</option>
+                  <option value="coado">Coado</option>
+                  <option value="capuccino">Capuccino</option>
+                  <option value="latte">Latte</option>
+                  <option value="cold-brew">Cold Brew</option>
+                  <option value="mocha">Mocha</option>
+                </select>
+              </div>
+
+              <!-- Como prefere beber -->
+              <div>
+                <label class="block text-lg mb-2">Como prefere beber?</label>
+                <div class="space-y-2">
+                  <label class="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      name="preferencias"
+                      value="quente"
+                      class="rounded text-marrom-claro"
+                    />
+                    <span>Quente</span>
+                  </label>
+                  <label class="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      name="preferencias"
+                      value="gelado"
+                      class="rounded text-marrom-claro"
+                    />
+                    <span>Gelado</span>
+                  </label>
+                  <label class="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      name="preferencias"
+                      value="com-leite"
+                      class="rounded text-marrom-claro"
+                    />
+                    <span>Com leite</span>
+                  </label>
+                  <label class="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      name="preferencias"
+                      value="puro"
+                      class="rounded text-marrom-claro"
+                    />
+                    <span>Puro</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Mensagem extra -->
+              <div>
+                <label for="mensagem" class="block text-lg mb-2"
+                  >Mensagem extra (opcional)</label
+                >
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  rows="4"
+                  class="w-full border border-marrom-claro/40 focus:border-marrom-claro rounded-lg px-4 py-2 focus:outline-none"
+                ></textarea>
+              </div>
+
+              <!-- GDPR Checkbox -->
+              <div>
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    name="gdpr"
+                    required
+                    class="rounded text-marrom-claro"
+                  />
+                  <span>Aceito receber novidades ☕️</span>
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="w-full bg-marrom-cafe text-creme px-8 py-4 rounded-full font-medium hover:bg-marrom-claro transition-colors"
+              >
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Contato Section -->
+      <section id="contato" class="py-20 bg-creme">
+        <div class="container">
+          <h2
+            class="text-3xl md:text-4xl font-playfair font-bold text-center mb-12"
+          >
+            Entre em Contato
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-12">
+            <!-- Map and Info -->
+            <div class="space-y-8">
+              <!-- Map -->
+              <div class="rounded-2xl overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.8915283621354!2d-43.9346!3d-19.9247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDU1JzI4LjkiUyA0M8KwNTYnMDQuNiJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+                  width="100%"
+                  height="300"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                >
+                </iframe>
+              </div>
+
+              <!-- Business Hours -->
+              <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <h3 class="text-xl font-playfair font-semibold mb-4">
+                  Horário de Funcionamento
+                </h3>
+                <div class="space-y-2">
+                  <p class="flex justify-between">
+                    <span>Segunda – Sexta</span>
+                    <span>08:00 – 19:00</span>
+                  </p>
+                  <p class="flex justify-between">
+                    <span>Sábado</span>
+                    <span>09:00 – 18:00</span>
+                  </p>
+                  <p class="flex justify-between text-marrom-claro">
+                    <span>Domingo</span>
+                    <span>Fechado</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="flex space-x-4">
+                <a
+                  href="https://wa.me/5500000000000"
+                  class="bg-verde text-white p-3 rounded-full hover:bg-opacity-90 transition-colors"
+                >
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://instagram.com/fazumcafezim"
+                  class="bg-accent-1 text-white p-3 rounded-full hover:bg-opacity-90 transition-colors"
+                >
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+              <form
+                action="https://formspree.io/f/your-form-id"
+                method="POST"
+                class="space-y-6"
+              >
+                <div>
+                  <label for="contact-name" class="block text-lg mb-2"
+                    >Nome</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    required
+                    class="w-full border border-marrom-claro/40 focus:border-marrom-claro rounded-lg px-4 py-2 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="contact-email" class="block text-lg mb-2"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    required
+                    class="w-full border border-marrom-claro/40 focus:border-marrom-claro rounded-lg px-4 py-2 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="contact-message" class="block text-lg mb-2"
+                    >Mensagem</label
+                  >
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows="4"
+                    required
+                    class="w-full border border-marrom-claro/40 focus:border-marrom-claro rounded-lg px-4 py-2 focus:outline-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-marrom-cafe text-creme px-8 py-4 rounded-full font-medium hover:bg-marrom-claro transition-colors"
+                >
+                  Enviar Mensagem
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Additional sections will be added here -->
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-marrom-cafe text-creme py-8">
+      <div class="container text-center">
+        <p>&copy; 2024 FazUmCafezim. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Navbar color change on scroll
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("bg-creme/90");
+        } else {
+          navbar.classList.remove("bg-creme/90");
+        }
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+            });
+            // Close mobile menu if open
+            mobileMenu.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
