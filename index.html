@@ -205,8 +205,8 @@
       /* Mobile-specific image height */
       @media (max-width: 767px) {
         .hero-image-mobile {
-          height: 120vh !important;
-          min-height: 120vh !important;
+          height: 80vh !important;
+          min-height: 80vh !important;
         }
       }
     </style>
@@ -449,13 +449,11 @@
               </div>
               <!-- Image -->
               <div class="relative h-full w-full group overflow-hidden hero-image-mobile">
-                <div
-                  class="absolute inset-0 bg-gradient-to-l from-black/30 via-black/10 to-transparent z-10"
-                ></div>
                 <img
                   src="Imagens/MCK02.webp"
                   alt="Xícara de café artesanal"
-                  class="absolute inset-0 w-full h-full object-cover object-center z-0 transition-transform duration-700 group-hover:scale-105"
+                  class="absolute inset-0 w-full h-full object-contain z-0 transition-transform duration-700 group-hover:scale-105 shadow-lg"
+                  style="object-position: center;"
                 />
                 <!-- Floating elements -->
                 <div
@@ -473,7 +471,7 @@
           </div>
 
           <!-- Slide 2: Products Showcase -->
-          <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0" data-slide="2">
+          <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pt-24" data-slide="2">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0 p-0 relative z-10 h-full">
               <!-- Playful Product Collage -->
               <div class="flex items-center justify-center h-full w-full overflow-hidden px-4 md:px-0">
